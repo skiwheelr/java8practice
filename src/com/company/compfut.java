@@ -30,8 +30,8 @@ public class compfut {
 		//puts all these results into a string from a stream of completable futures
 		//	THE BENEFIT HERE IS THAT IT DOES NOT COMBINE THEM UNTIL ALL HAVE PROCESSED ASYNCHRONOUSLY
 		String combined = Stream.of(future, future2, future3)
-				.map(CompletableFuture::join)//perform CompletableFuture.join() on them
-				.collect(Collectors.joining("::"));//perform Collectors.joining() on them delimited by ::
+				.map(CompletableFuture::join)//perform CompletableFuture.join() on each of them (when available)
+				.collect(Collectors.joining("::"));//perform Collectors.joining() on them separating by ::
 
 		//final action
 		System.out.println(combined);
